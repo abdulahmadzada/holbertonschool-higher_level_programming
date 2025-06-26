@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""Function to check if object is instance of/inherited from specified class."""
+"""Модуль для проверки принадлежности объекта к классу или его наследникам."""
 
 
 def is_kind_of_class(obj, a_class):
-    """Check if an object is an instance of, or inherited from, a specified class.
+    """Проверяет, является ли объект экземпляром класса или его наследника.
 
     Args:
-        obj: The object to check
-        a_class: The class to compare against
+        obj: Объект для проверки
+        a_class: Класс для сравнения
 
     Returns:
-        bool: True if obj is instance of or inherited from a_class, False otherwise
+        bool: True если объект является экземпляром класса или его наследника,
+              False в противном случае
     """
     return isinstance(obj, a_class)
