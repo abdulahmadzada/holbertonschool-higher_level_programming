@@ -1,0 +1,60 @@
+BaseGeometry class tests
+=======================
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test area() method:
+>>> bg = BaseGeometry()
+>>> try:
+...     bg.area()
+... except Exception as e:
+...     print(e)
+area() is not implemented
+
+Test integer_validator() with valid input:
+>>> bg.integer_validator("valid_int", 1)
+>>> bg.integer_validator("valid_large", 1000)
+
+Test integer_validator() with string input:
+>>> try:
+...     bg.integer_validator("name", "John")
+... except TypeError as e:
+...     print("[{}] {}".format(type(e).__name__, e))
+[TypeError] name must be an integer
+
+Test integer_validator() with zero:
+>>> try:
+...     bg.integer_validator("age", 0)
+... except ValueError as e:
+...     print("[{}] {}".format(type(e).__name__, e))
+[ValueError] age must be greater than 0
+
+Test integer_validator() with negative number:
+>>> try:
+...     bg.integer_validator("distance", -5)
+... except ValueError as e:
+...     print("[{}] {}".format(type(e).__name__, e))
+[ValueError] distance must be greater than 0
+
+Test integer_validator() with float that's actually integer:
+>>> try:
+...     bg.integer_validator("float", 5.0)
+... except TypeError as e:
+...     print("[{}] {}".format(type(e).__name__, e))
+[TypeError] float must be an integer
+
+Test integer_validator() with boolean:
+>>> try:
+...     bg.integer_validator("flag", True)
+... except TypeError as e:
+...     print("[{}] {}".format(type(e).__name__, e))
+[TypeError] flag must be an integer
+
+Test multiple validations:
+>>> bg.integer_validator("width", 10)
+>>> bg.integer_validator("height", 20)
+>>> try:
+...     bg.integer_validator("depth", 0)
+... except ValueError as e:
+...     print("[{}] {}".format(type(e).__name__, e))
+[ValueError] depth must be greater than 0
