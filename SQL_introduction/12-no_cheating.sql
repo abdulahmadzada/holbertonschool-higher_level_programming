@@ -1,3 +1,4 @@
 -- 12-no_cheating.sql
 UPDATE second_table
-SET Bob = 10;
+SET score = 10
+WHERE name = 'Bob';
